@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.github.kaiwinter</groupId>
+   <artifactId>maven-flavors</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+
+   <name>maven-flavors</name>
+   <description>Product flavors like Maven profiles.</description>
+   <url>https://github.com/kaiwinter/maven-flavors</url>
+
+   <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+
+   <profiles>
+      <profile>
+         <id>client-a</id>
+         <activation>
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>build-helper-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                           <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                           <sources>
+                              <source>src-client-a/main/java</source>
+                           </sources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-resource</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                           <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                           <resources>
+                              <resource>
+                                 <directory>src-client-a/main/resources</directory>
+                              </resource>
+                           </resources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                           <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                           <sources>
+                              <source>src-client-a/test/java</source>
+                           </sources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-test-resource</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                           <goal>add-test-resource</goal>
+                        </goals>
+                        <configuration>
+                           <resources>
+                              <resource>
+                                 <directory>src-client-a/test/resources</directory>
+                              </resource>
+                           </resources>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+
+      <profile>
+         <id>client-b</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>build-helper-maven-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                           <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                           <sources>
+                              <source>src-client-b/main/java</source>
+                           </sources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-resource</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                           <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                           <resources>
+                              <resource>
+                                 <directory>src-client-b/main/resources</directory>
+                              </resource>
+                           </resources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                           <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                           <sources>
+                              <source>src-client-b/test/java</source>
+                           </sources>
+                        </configuration>
+                     </execution>
+
+                     <execution>
+                        <id>add-test-resource</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                           <goal>add-test-resource</goal>
+                        </goals>
+                        <configuration>
+                           <resources>
+                              <resource>
+                                 <directory>src-client-b/test/resources</directory>
+                              </resource>
+                           </resources>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
+
+</project>
